@@ -24,3 +24,17 @@ classifier = svm.SVC(gamma=0.001)
 
 # 將前一半的資料拿來學習
 classifier.fit(data[:my_samples // 2], digits.target[:my_samples // 2])
+
+# 答案與預測答案:
+expected = digits.target[my_samples // 2:]
+predicted = classifier.predict(data[my_samples // 2:])
+
+# 進行預測
+images_and_predictions = list(zip(digits.images[my_samples // 2:], predicted))
+for index, (image, prediction) in enumerate(images_and_predictions[:4]):
+    plt.subplot(2, 4, index + 5)
+    plt.axis('off')
+    plt.imshow(image, cmap=plt.cm.gray_r, interpolation='nearest')
+    plt.title('Prediction: %i' % prediction)
+
+plt.show()
