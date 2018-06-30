@@ -14,3 +14,13 @@ for index, (image, label) in enumerate(images_and_labels[:4]):
     plt.axis('off')
     plt.imshow(image, cmap=plt.cm.gray_r, interpolation='nearest')
     plt.title('Training: %i' % label)
+
+# 降低維度
+my_samples = len(digits.images)
+data = digits.images.reshape((my_samples, -1))
+
+# 建立一個 classifier: a support vector classifier
+classifier = svm.SVC(gamma=0.001)
+
+# 將前一半的資料拿來學習
+classifier.fit(data[:my_samples // 2], digits.target[:my_samples // 2])
