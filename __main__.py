@@ -29,7 +29,7 @@ classifier.fit(data[:my_samples // 2], digits.target[:my_samples // 2])
 expected = digits.target[my_samples // 2:]
 predicted = classifier.predict(data[my_samples // 2:])
 
-# 進行預測
+# 預測結果
 images_and_predictions = list(zip(digits.images[my_samples // 2:], predicted))
 for index, (image, prediction) in enumerate(images_and_predictions[:4]):
     plt.subplot(2, 4, index + 5)
