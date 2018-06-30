@@ -1,4 +1,4 @@
-# 機器學習作業 - Linear Classify
+# 機器學習作業 - 手寫辨識
 
 
 ## 一、Prepare Before Excute Program
